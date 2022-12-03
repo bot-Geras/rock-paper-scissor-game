@@ -20,7 +20,7 @@ body {
     justify-content: center;
 }
 
-h2 {
+h1,h2 {
     padding: 0;
 
 }
@@ -29,16 +29,14 @@ span {
     font-style: italic;
 }
 
-.img {
-    width: 100%;
-    max-width: 200px;
-}
-
 .score {
     display: flex;
     flex-direction:  row;
     gap: 20px;
+    align-items: center;
+    
 }
+
 
 
 button {
@@ -48,7 +46,7 @@ button {
 }
 
 .btn-user {
-    padding: 20px;
+    padding: 5px;
 }
 
 .btn {
