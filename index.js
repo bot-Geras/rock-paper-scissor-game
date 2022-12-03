@@ -2,22 +2,22 @@ const computerDisplay = document.getElementById("computer-results");
 const userDisplay = document.getElementById("user-results");
 const resultDisplay = document.getElementById("result");
 const possibleChoice = document.querySelectorAll("button");
+const resetBtn = document.getElementById("Reset")
+
 let userChoice;
 let computerChoice;
 let results;
 
-possibleChoice.forEach((choice) =>
-  choice.addEventListener("click", (e) => {
-    userChoice = e.target.id;
-    userDisplay.innerHTML = userChoice;
-    generateComputerChoice();
-    getResults();
-  })
-);
+function getUserChoice(e) {
+  userChoice = e.target.id;
+  userDisplay.innerHTML = userChoice;
+  generateComputerChoice();
+  getResults();
+}
 
 function generateComputerChoice() {
-  let randomNumber = Math.floor(Math.random() * 3) + 1;
-  console.log(randomNumber);
+  let randomNumber = Math.floor(Math.random() * 3) + 1 ;
+ 
   if (randomNumber === 1) {
     computerChoice = "rock";
   }
@@ -36,22 +36,31 @@ function getResults() {
     results = "its a Draw";
   }
   if (computerChoice === "rock" && userChoice === "paper") {
-    results = "User Won";
+    results = "You Won";
   }
   if (computerChoice === "rock" && userChoice === "scissors") {
-    results = "Computer Won";
+    results = "You lost";
   }
   if (computerChoice === "paper" && userChoice === "scissors") {
-    results = "User Won";
+    results = "You win";
   }
   if (computerChoice === "paper" && userChoice === "Rock") {
-    results = "Computer Won";
+    results = "You lost";
   }
   if (computerChoice === "scissors" && userChoice === "rock") {
-    results = "User Won";
+    results = "You Won";
   }
   if (computerChoice === "scissors" && userChoice === "paper") {
-    results = "computer Won";
+    results = "you lost";
   }
   resultDisplay.innerHTML = results;
 }
+
+possibleChoice.forEach((choice) =>
+  choice.addEventListener("click", getUserChoice)
+);
+resetBtn.addEventListener("click", (e) => {
+  computerDisplay.innerHTML = ""
+  userDisplay.innerHTML = ""
+  resultDisplay.innerHTML = ""
+})
