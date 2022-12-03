@@ -31,9 +31,14 @@ span {
 
 .img {
     width: 100%;
-    max-width: 300px;
+    max-width: 200px;
 }
 
+.score {
+    display: flex;
+    flex-direction:  row;
+    gap: 20px;
+}
 
 
 button {
