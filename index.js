@@ -2,22 +2,10 @@ const computerDisplay = document.getElementById("computer-results");
 const userDisplay = document.getElementById("user-results");
 const resultDisplay = document.getElementById("result");
 const possibleChoice = document.querySelectorAll("button");
-const resetBtn = document.getElementById("Reset");
-const playerScoreHtml = document.getElementById("player");
-const computerScoreHtml = document.getElementById("computer");
-const movesLeft = document.getElementById("moves");
-const displayContainer = document.getElementById("container");
 
 let userChoice;
 let computerChoice;
 let results;
-
-function getUserChoice(e) {
-  userChoice = e.target.id;
-  userDisplay.innerHTML = userChoice;
-
-  generateComputerChoice();
-}
 
 function generateComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3) + 1;
@@ -58,8 +46,14 @@ function getResults() {
     results = "you lost";
   }
   resultDisplay.innerHTML = results;
+  console.log(results);
 }
 
 possibleChoice.forEach((choice) =>
-  choice.addEventListener("click", getUserChoice)
+  choice.addEventListener("click", (e) => {
+    userChoice = e.target.id;
+    userDisplay.innerHTML = userChoice;
+    generateComputerChoice();
+    getResults();
+  })
 );
