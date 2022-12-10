@@ -4,15 +4,15 @@ html,body {
 }
 
 body {
+    background: rgb(230, 227, 220);
    height: 100vh;
     font-family: 'Roboto Mono', monospace;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: black;
+    color: hsl(42°, 4%, 18%);
    
-    
 }
 .game {
     display: flex;
@@ -37,8 +37,6 @@ span {
     align-items: center;
     
 }
-
-
 
 button {
     font-family: 'Roboto Mono', monospace;
